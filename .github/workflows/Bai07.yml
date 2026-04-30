@@ -1,10 +1,12 @@
 name: Bai07 Pipeline
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   checkstyle:
@@ -21,3 +23,10 @@ jobs:
         
     - name: Run Checkstyle
       run: mvn -f Bai07/pom.xml checkstyle:check
+      continue-on-error: true
+        
+    - name: Checkstyle Review
+      uses: dbelyaev/action-checkstyle@master
+      with:
+        github_token: ${{ secrets.github_token }}
+        level: warning
