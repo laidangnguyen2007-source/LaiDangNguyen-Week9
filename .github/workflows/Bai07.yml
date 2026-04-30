@@ -1,4 +1,4 @@
-﻿name: Bai07 Pipeline
+name: Bai07 Pipeline
 
 on:
   pull_request:
@@ -22,11 +22,18 @@ jobs:
         cache: 'maven'
         
     - name: Run Checkstyle
-      run: mvn -f Bai07/pom.xml checkstyle:check
-      continue-on-error: false
+      run: mvn -f Bai07/pom.xml checkstyle:checkstyle
+      continue-on-error: true
         
     - name: Checkstyle Review
       uses: dbelyaev/action-checkstyle@master
       with:
         github_token: ${{ secrets.github_token }}
         level: warning
+        
+    - name: Force Failure if Checkstyle failed
+      run: |
+        if grep -q "violation" Bai07/target/checkstyle-result.xml; then
+          echo "Checkstyle violations found. Failing the job."
+          exit 1
+        fi
