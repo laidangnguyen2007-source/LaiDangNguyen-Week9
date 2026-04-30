@@ -6,5 +6,4 @@
 ## 2. Thời gian chạy lần 2 (Đã có Cache)
 [Chèn ảnh số giây chạy vào đây]
 
-## 3. Ảnh Log g hi dòng 'Cache restored successfully'
-[Chèn ảnh vào đây]
+## 3. Ảnh Log ghi dòng 'Cache restored successfully'
