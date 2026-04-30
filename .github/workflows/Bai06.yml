@@ -17,6 +17,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: 'maven'
+        cache: 'maven'
         
     - name: Bai06 Pipeline
       run: mvn -f Bai06/pom.xml clean test
