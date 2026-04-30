@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Bai03 Pipeline
-        path: target/*.jar
+        path: Bai03/target/*.jar
