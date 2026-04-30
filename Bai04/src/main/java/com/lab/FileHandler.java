@@ -1,8 +1,6 @@
-﻿package com.lab;
+package com.lab;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class FileHandler {
 
