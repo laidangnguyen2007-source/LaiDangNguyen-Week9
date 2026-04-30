@@ -1,4 +1,4 @@
-package com.lab;
+﻿package com.lab;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -8,7 +8,6 @@ public class FileHandler {
 
     public String getSafeFilePath(String folder, String filename) {
         // Cách an toàn: Luôn dùng File.separator để tự động sinh đúng dấu gạch chéo theo HĐH
-        Path path = Paths.get(folder + "\\" + filename);
-        return path.toString();
+        return folder + File.separator + filename;
     }
 }
