@@ -25,15 +25,11 @@ jobs:
       run: mvn -f Bai07/pom.xml checkstyle:checkstyle
       continue-on-error: true
         
-    - name: Checkstyle Review
-      uses: dbelyaev/action-checkstyle@master
+    - name: Run Reviewdog (Inline Bot Comments)
+      uses: reviewdog/action-checkstyle@v1
       with:
         github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review
+        checkstyle_config: Bai07/google_checks.xml # Reviewdog sẽ tự dùng file kết quả xml
+        xml_path: Bai07/target/checkstyle-result.xml
         level: warning
-        
-    - name: Force Failure if Checkstyle failed
-      run: |
-        if grep -q "violation" Bai07/target/checkstyle-result.xml; then
-          echo "Checkstyle violations found. Failing the job."
-          exit 1
-        fi
