@@ -1,37 +1,32 @@
-﻿name: Bai07 Pipeline
+name: Bai07 Pipeline
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-jobs:
-  build:
-    runs-on:
-  push:
-    branches: [ "main" ] ubuntu-latest
+permissions:
+  contents: read
+  pull-requests: write
 
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Bai07 Pipeline
+
+    - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version:
-  push:
-    branches: [ "main" ] '17'
-        distribution:
-  push:
-    branches: [ "main" ] 'temurin'
-        
-    - name: Bai07 Pipeline
-      run: mvn -f Bai07/pom.xml checkstyle:check
-      continue-on-error: true
-      
-    - name: Bai07 Pipeline
+        java-version: '17'
+        distribution: 'temurin'
+        cache: 'maven'
+
+    - name: Checkstyle Review Bot
       uses: dbelyaev/action-checkstyle@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-review
         checkstyle_config: google_checks.xml
+        workdir: Bai07
+        level: warning
+        fail_on_error: false
