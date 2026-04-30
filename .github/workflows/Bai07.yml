@@ -25,11 +25,9 @@ jobs:
       run: mvn -f Bai07/pom.xml checkstyle:checkstyle
       continue-on-error: true
         
-    - name: Run Reviewdog (Inline Bot Comments)
-      uses: reviewdog/action-checkstyle@v1
+    - name: Checkstyle Review (Bot Comments)
+      uses: dbelyaev/action-checkstyle@master
       with:
         github_token: ${{ secrets.github_token }}
-        reporter: github-pr-review
-        checkstyle_config: Bai07/google_checks.xml # Reviewdog sẽ tự dùng file kết quả xml
-        xml_path: Bai07/target/checkstyle-result.xml
+        checkstyle_config: Bai07/google_checks.xml
         level: warning
