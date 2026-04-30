@@ -8,6 +8,6 @@ public class Calculator {
 
     public int multiply(int a, int b) {
         logger.info("Multiplying {} and {}", a, b);
-        return a + b;
+        return a * b;
     }
 }
