@@ -28,3 +28,4 @@ jobs:
         reporter: github-pr-review
         checkstyle_config: Bai07/google_checks.xml
         level: warning
+        fail_on_error: false
