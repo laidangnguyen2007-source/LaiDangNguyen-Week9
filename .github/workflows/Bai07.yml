@@ -26,6 +26,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-review
-        checkstyle_config: Bai07/google_checks.xml
+        checkstyle_config: google_checks.xml
+        workdir: Bai07
         level: warning
         fail_on_error: false
