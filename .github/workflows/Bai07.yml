@@ -1,4 +1,4 @@
-name: Bai07 Pipeline
+﻿name: Bai07 Pipeline
 
 on:
   pull_request:
@@ -23,7 +23,7 @@ jobs:
         
     - name: Run Checkstyle
       run: mvn -f Bai07/pom.xml checkstyle:check
-      continue-on-error: true
+      continue-on-error: false
         
     - name: Checkstyle Review
       uses: dbelyaev/action-checkstyle@master
