@@ -1,0 +1,29 @@
+﻿name: Bai05 Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Bai05 Pipeline
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Bai05 Pipeline
+      run: mvn -f Bai05/pom.xml verify
+      
+    - name: Bai05 Pipeline
+      uses: actions/upload-artifact@v3
+      with:
+        name: Bai05 Pipeline
+        path: Bai05/target/site/jacoco/
