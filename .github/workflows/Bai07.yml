@@ -1,12 +1,16 @@
 ﻿name: Bai07 Pipeline
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on:
+  push:
+    branches: [ "main" ] ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -14,8 +18,12 @@ jobs:
     - name: Bai07 Pipeline
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
-        distribution: 'temurin'
+        java-version:
+  push:
+    branches: [ "main" ] '17'
+        distribution:
+  push:
+    branches: [ "main" ] 'temurin'
         
     - name: Bai07 Pipeline
       run: mvn -f Bai07/pom.xml checkstyle:check

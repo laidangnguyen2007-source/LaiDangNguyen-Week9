@@ -1,4 +1,4 @@
-name: Java CI
+﻿name: Bai03 Pipeline
 
 on:
   push:
@@ -13,17 +13,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Set up JDK 17
+    - name: Bai03 Pipeline
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Build with Maven
+    - name: Bai03 Pipeline
       run: mvn clean package -f Bai03/pom.xml
       
-    - name: Upload JAR
+    - name: Bai03 Pipeline
       uses: actions/upload-artifact@v3
       with:
-        name: my-app-jar
+        name: Bai03 Pipeline
         path: target/*.jar
